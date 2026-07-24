@@ -124,29 +124,29 @@ export function SectionDashboard() {
 
   return (
     <section id="dashboard" className="hairline-b bg-surface-muted/40">
-      <div className="mx-auto max-w-[1240px] px-6 py-24">
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 py-12 sm:py-20 lg:py-24">
+        <div className="mb-6 sm:mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="mono-num text-[11px] uppercase tracking-[0.24em] text-ink-subtle">
+            <p className="mono-num text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-ink-subtle">
               03 / Workspace
             </p>
-            <h2 className="mt-3 text-3xl font-medium tracking-[-0.02em] text-ink md:text-4xl">
+            <h2 className="mt-2 text-2xl font-medium tracking-[-0.02em] text-ink sm:mt-3 sm:text-3xl lg:text-4xl">
               A room for decisions,
               <br className="hidden md:block" /> not a wall of dashboards.
             </h2>
           </div>
-          <p className="max-w-md text-sm text-ink-muted">
+          <p className="max-w-md text-xs sm:text-sm text-ink-muted">
             The workspace is a live surface — insights arrive with evidence, and
             every action is one keystroke away. Try ⌘K.
           </p>
         </div>
 
         <div className="overflow-hidden rounded-xl border border-hairline bg-surface shadow-[0_1px_0_0_rgba(0,0,0,0.02),0_30px_60px_-30px_rgba(20,30,60,0.15)]">
-          <div className="grid grid-cols-[220px_1fr]">
+          <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr]">
             <Sidebar active={sidebar} onSelect={handleSidebar} onView={applyView} />
             <div className="min-w-0">
               <TopBar tab={tab} onChange={setTab} onCommand={() => setPaletteOpen(true)} />
-              <div className="p-6">
+              <div className="p-3 sm:p-6">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={tab}
@@ -223,7 +223,7 @@ function Sidebar({
     { key: "models", label: "Models" },
   ];
   return (
-    <aside className="hairline-b border-r border-hairline bg-surface-muted/60 p-4">
+    <aside className="hairline-b border-b border-hairline lg:border-b-0 lg:border-r bg-surface-muted/60 p-3 sm:p-4">
       <div className="flex items-center justify-between px-2 py-1">
         <div className="flex items-center gap-2">
           <div className="h-6 w-6 rounded-md border border-hairline-strong bg-surface flex items-center justify-center text-[10px] font-semibold text-ink">
@@ -233,17 +233,17 @@ function Sidebar({
         </div>
         <span className="mono-num text-[10px] text-ink-subtle">prod</span>
       </div>
-      <div className="mt-4">
-        <p className="px-2 mono-num text-[10px] uppercase tracking-[0.2em] text-ink-subtle">Workspace</p>
-        <nav className="mt-1 space-y-0.5">
+      <div className="mt-3 lg:mt-4">
+        <p className="px-2 mono-num text-[10px] uppercase tracking-[0.2em] text-ink-subtle hidden lg:block">Workspace</p>
+        <nav className="mt-1 flex flex-row overflow-x-auto gap-1 pb-1 custom-scrollbar lg:flex-col lg:space-y-0.5 lg:overflow-visible lg:pb-0">
           {nav.map((n) => {
             const isActive = active === n.key;
             return (
               <button
                 key={n.key}
                 onClick={() => onSelect(n.key)}
-                className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm transition-colors ${
-                  isActive ? "bg-signal-soft/70 text-ink" : "text-ink-muted hover:bg-surface-sunken"
+                className={`flex shrink-0 items-center gap-2 rounded-md px-2.5 py-1.5 text-left text-xs sm:text-sm transition-colors cursor-pointer ${
+                  isActive ? "bg-signal-soft/70 text-ink font-medium" : "text-ink-muted hover:bg-surface-sunken"
                 }`}
               >
                 <span className={`h-1.5 w-1.5 rounded-full ${isActive ? "bg-signal" : "bg-hairline-strong"}`} />
@@ -253,21 +253,21 @@ function Sidebar({
           })}
         </nav>
       </div>
-      <div className="mt-6">
+      <div className="mt-6 hidden lg:block">
         <p className="px-2 mono-num text-[10px] uppercase tracking-[0.2em] text-ink-subtle">Saved views</p>
         <div className="mt-1 space-y-0.5">
           {savedViews.map((v) => (
             <button
               key={v.id}
               onClick={() => onView(v.id)}
-              className="block w-full rounded-md px-2 py-1.5 text-left text-sm text-ink-muted hover:bg-surface-sunken hover:text-ink"
+              className="block w-full rounded-md px-2 py-1.5 text-left text-sm text-ink-muted hover:bg-surface-sunken hover:text-ink cursor-pointer"
             >
               {v.label}
             </button>
           ))}
         </div>
       </div>
-      <div className="mt-8 border-t border-hairline pt-3">
+      <div className="mt-8 hidden lg:block border-t border-hairline pt-3">
         <div className="flex items-center gap-2 px-2">
           <div className="h-6 w-6 rounded-full bg-ink text-surface flex items-center justify-center text-[10px] font-medium">
             RM
@@ -292,19 +292,19 @@ function TopBar({
   onCommand: () => void;
 }) {
   return (
-    <div className="hairline-b flex items-center justify-between gap-4 px-6 py-3">
-      <div className="flex items-center gap-3 text-sm text-ink-muted">
+    <div className="hairline-b flex flex-wrap items-center justify-between gap-2 sm:gap-4 px-3 sm:px-6 py-3">
+      <div className="hidden sm:flex items-center gap-3 text-sm text-ink-muted">
         <span>Workspace</span>
         <span className="text-ink-subtle">/</span>
         <span className="text-ink">Home</span>
       </div>
-      <div className="relative flex items-center gap-1">
+      <div className="relative flex items-center gap-1 overflow-x-auto custom-scrollbar pb-1 sm:pb-0">
         {tabs.map((t) => (
           <button
             key={t.id}
             onClick={() => onChange(t.id)}
-            className={`relative rounded px-3 py-1.5 text-sm transition-colors ${
-              tab === t.id ? "text-ink" : "text-ink-muted hover:text-ink"
+            className={`relative shrink-0 rounded px-2.5 sm:px-3 py-1.5 text-xs sm:text-sm transition-colors cursor-pointer ${
+              tab === t.id ? "text-ink font-medium" : "text-ink-muted hover:text-ink"
             }`}
           >
             {t.label}
@@ -324,7 +324,7 @@ function TopBar({
         </div>
         <button
           onClick={onCommand}
-          className="rounded border border-hairline bg-surface px-2 py-1 text-xs text-ink-muted hover:text-ink"
+          className="rounded border border-hairline bg-surface px-2 py-1 text-xs text-ink-muted hover:text-ink cursor-pointer"
         >
           ⌘K
         </button>
@@ -636,58 +636,60 @@ function InsightsTable({
           </button>
         </div>
       </div>
-      <div>
-        <div className="hairline-b grid grid-cols-[90px_1fr_160px_100px_110px_60px] gap-4 px-4 py-2 mono-num text-[10px] uppercase tracking-[0.16em] text-ink-subtle">
-          <span>ID</span>
-          <span>Signal</span>
-          <span>Source</span>
-          <span>Confidence</span>
-          <span>Status</span>
-          <span className="text-right">Age</span>
-        </div>
-        {rows.length === 0 && (
-          <div className="px-4 py-8 text-center text-sm text-ink-muted">
-            No insights match the current filters.
+      <div className="overflow-x-auto custom-scrollbar">
+        <div className="min-w-[640px]">
+          <div className="hairline-b grid grid-cols-[80px_1fr_140px_90px_100px_50px] gap-3 px-4 py-2 mono-num text-[10px] uppercase tracking-[0.16em] text-ink-subtle">
+            <span>ID</span>
+            <span>Signal</span>
+            <span>Source</span>
+            <span>Confidence</span>
+            <span>Status</span>
+            <span className="text-right">Age</span>
           </div>
-        )}
-        {rows.map((r, i) => (
-          <div key={r.id} className="hairline-b last:border-b-0">
-            <motion.button
-              type="button"
-              onClick={() => onExpand(r.id)}
-              initial={{ opacity: 0, y: 4 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.35, delay: i * 0.03 }}
-              className="grid w-full grid-cols-[90px_1fr_160px_100px_110px_60px] items-center gap-4 px-4 py-3 text-left text-sm transition-colors hover:bg-surface-muted/40"
-            >
-              <span className="mono-num text-xs text-ink-subtle">{r.id}</span>
-              <span className="truncate text-ink">{r.signal}</span>
-              <span className="mono-num truncate text-xs text-ink-muted">{r.source}</span>
-              <span className="mono-num text-xs text-ink">{r.confidence.toFixed(2)}</span>
-              <StatusPill status={r.status} />
-              <span className="mono-num text-right text-xs text-ink-subtle">{r.time}</span>
-            </motion.button>
-            <AnimatePresence initial={false}>
-              {expanded === r.id && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="overflow-hidden bg-surface-muted/40"
-                >
-                  <div className="px-4 py-3 text-xs text-ink-muted">
-                    <div className="mono-num text-[10px] uppercase tracking-[0.16em] text-ink-subtle">
-                      Evidence
+          {rows.length === 0 && (
+            <div className="px-4 py-8 text-center text-sm text-ink-muted">
+              No insights match the current filters.
+            </div>
+          )}
+          {rows.map((r, i) => (
+            <div key={r.id} className="hairline-b last:border-b-0">
+              <motion.button
+                type="button"
+                onClick={() => onExpand(r.id)}
+                initial={{ opacity: 0, y: 4 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.35, delay: i * 0.03 }}
+                className="grid w-full grid-cols-[80px_1fr_140px_90px_100px_50px] items-center gap-3 px-4 py-3 text-left text-xs sm:text-sm transition-colors hover:bg-surface-muted/40 cursor-pointer"
+              >
+                <span className="mono-num text-xs text-ink-subtle">{r.id}</span>
+                <span className="truncate text-ink">{r.signal}</span>
+                <span className="mono-num truncate text-xs text-ink-muted">{r.source}</span>
+                <span className="mono-num text-xs text-ink">{r.confidence.toFixed(2)}</span>
+                <StatusPill status={r.status} />
+                <span className="mono-num text-right text-xs text-ink-subtle">{r.time}</span>
+              </motion.button>
+              <AnimatePresence initial={false}>
+                {expanded === r.id && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="overflow-hidden bg-surface-muted/40"
+                  >
+                    <div className="px-4 py-3 text-xs text-ink-muted">
+                      <div className="mono-num text-[10px] uppercase tracking-[0.16em] text-ink-subtle">
+                        Evidence
+                      </div>
+                      <p className="mt-1 text-ink">{r.detail}</p>
                     </div>
-                    <p className="mt-1 text-ink">{r.detail}</p>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

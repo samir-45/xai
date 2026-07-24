@@ -149,6 +149,13 @@ canvas {
   width: 100%;
 }
 
+@media (max-width: 1023px) {
+  .py-28 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+}
+
 @media (max-width: 767px) {
   .container {
     padding-left: 16px !important;
@@ -176,12 +183,12 @@ canvas {
   }
 
   .text-5xl {
-    font-size: 2.5rem !important;
+    font-size: 2.25rem !important;
     line-height: 1.12 !important;
   }
 
   .text-4xl {
-    font-size: 2.25rem !important;
+    font-size: 1.875rem !important;
     line-height: 1.14 !important;
   }
 
@@ -199,25 +206,26 @@ canvas {
   }
 
   .py-16 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
   }
 
-  .py-20 {
+  .py-20, .py-28 {
     padding-top: 3.5rem !important;
     padding-bottom: 3.5rem !important;
   }
 
   .p-8,
-  .p-10 {
-    padding: 1.5rem !important;
+  .p-10,
+  .p-12 {
+    padding: 1.25rem !important;
   }
 
   .px-8,
   .px-10,
   .px-12 {
-    padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 
   h2.shrink-0 {
@@ -239,27 +247,43 @@ canvas {
 
 @media (max-width: 420px) {
   .container {
-    padding-left: 14px !important;
-    padding-right: 14px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
   }
 
   .min-h-\[520px\] {
-    min-height: 420px !important;
+    min-height: 400px !important;
   }
 
   .min-h-\[420px\] {
-    min-height: 338px !important;
+    min-height: 320px !important;
   }
 
   .h-\[560px\] {
-    height: 420px !important;
+    height: 400px !important;
   }
 
   .text-5xl,
   .text-4xl {
-    font-size: 2rem !important;
+    font-size: 1.75rem !important;
     line-height: 1.16 !important;
   }
+}
+
+/* Custom subtle scrollbar for dashboard tables & horizontal tabs */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--surface-muted);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--hairline-strong);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-subtle);
 }
 
 [style*="--Gradian-Colur"] {

@@ -56,25 +56,25 @@ export function SectionInsightFlow() {
 
   return (
     <section id="flow" ref={containerRef} className="relative hairline-b bg-surface" style={{ height: `${stages.length * 100}vh` }}>
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="mx-auto grid h-full max-w-[1240px] grid-cols-1 gap-10 px-6 md:grid-cols-[280px_1fr]">
-          {/* Left rail */}
-          <div className="flex h-full flex-col justify-center py-16">
-            <p className="mono-num text-[11px] uppercase tracking-[0.24em] text-ink-subtle">
+      <div className="sticky top-0 flex min-h-screen items-center overflow-hidden py-4 sm:py-6 lg:py-0">
+        <div className="mx-auto grid h-full w-full max-w-[1240px] grid-cols-1 gap-6 sm:gap-8 px-4 sm:px-6 lg:grid-cols-[280px_1fr] lg:gap-10">
+          {/* Left rail / Top bar on mobile */}
+          <div className="flex flex-col justify-center py-2 sm:py-4 lg:py-16">
+            <p className="mono-num text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-ink-subtle">
               02 / How Xai works
             </p>
-            <h2 className="mt-4 text-3xl font-medium tracking-[-0.02em] text-ink md:text-4xl">
+            <h2 className="mt-2 text-2xl font-medium tracking-[-0.02em] text-ink sm:mt-4 sm:text-3xl lg:text-4xl">
               From raw signal to
-              <br />executed action.
+              <br className="hidden sm:inline" /> executed action.
             </h2>
 
-            <ol className="mt-10 space-y-5">
+            <ol className="mt-4 flex flex-row overflow-x-auto gap-2 pb-2 custom-scrollbar lg:mt-10 lg:flex-col lg:space-y-5 lg:gap-0 lg:overflow-visible lg:pb-0">
               {stages.map((s, i) => {
                 const isActive = i === active;
                 const isPast = i < active;
                 return (
-                  <li key={s.id} className="flex items-start gap-3">
-                    <div className="relative mt-1 flex h-5 w-5 items-center justify-center">
+                  <li key={s.id} className="flex shrink-0 items-center gap-2 rounded-lg border border-hairline p-1.5 lg:border-none lg:p-0 lg:items-start lg:gap-3">
+                    <div className="relative flex h-5 w-5 shrink-0 items-center justify-center">
                       <span
                         className={`absolute inset-0 rounded-full border transition-colors ${
                           isActive || isPast ? "border-signal bg-signal" : "border-hairline-strong bg-surface"
@@ -90,12 +90,12 @@ export function SectionInsightFlow() {
                     </div>
                     <button
                       onClick={() => scrollToStage(i)}
-                      className={`text-left text-sm transition-colors ${
+                      className={`text-left text-xs sm:text-sm transition-colors cursor-pointer ${
                         isActive ? "text-ink font-semibold" : "text-ink-muted hover:text-ink"
                       }`}
                     >
-                      <div className="font-medium">{s.title}</div>
-                      <div className="text-xs text-ink-subtle">{s.subtitle}</div>
+                      <div className="font-medium whitespace-nowrap lg:whitespace-normal">{s.title}</div>
+                      <div className="hidden text-xs text-ink-subtle lg:block">{s.subtitle}</div>
                     </button>
                   </li>
                 );
@@ -103,7 +103,7 @@ export function SectionInsightFlow() {
             </ol>
 
             {/* Progress line */}
-            <div className="mt-10 h-1 w-40 overflow-hidden rounded-full bg-hairline">
+            <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-hairline sm:mt-6 lg:mt-10 lg:w-40">
               <div
                 className="h-full bg-signal transition-all duration-150 ease-out"
                 style={{ width: `${progress * 100}%` }}
@@ -113,7 +113,7 @@ export function SectionInsightFlow() {
 
           {/* Right stage panel */}
           <div className="relative flex h-full items-center">
-            <div className="relative aspect-[5/4] w-full overflow-hidden rounded-lg border border-hairline bg-surface-muted">
+            <div className="relative min-h-[360px] sm:min-h-[420px] lg:aspect-[5/4] w-full overflow-hidden rounded-lg border border-hairline bg-surface-muted">
               <div className="pointer-events-none absolute inset-0 grid-bg opacity-40" />
               <AnimatePresence mode="wait">
                 <motion.div
@@ -122,22 +122,22 @@ export function SectionInsightFlow() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={reduced ? { opacity: 0 } : { opacity: 0, y: -16, scale: 0.98 }}
                   transition={{ duration: 0.4, ease: [0.2, 0.7, 0.2, 1] }}
-                  className="absolute inset-0 flex flex-col justify-between p-8 md:p-12"
+                  className="absolute inset-0 flex flex-col justify-between p-4 sm:p-6 lg:p-12 overflow-y-auto custom-scrollbar"
                 >
                   <StageDiagram id={stages[active].id} />
-                  <div>
-                    <div className="mono-num text-[11px] uppercase tracking-[0.2em] text-signal">
+                  <div className="mt-4">
+                    <div className="mono-num text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-signal">
                       Stage {stages[active].index}
                     </div>
-                    <h3 className="mt-2 text-2xl font-medium tracking-tight text-ink md:text-3xl">
+                    <h3 className="mt-1 text-lg font-medium tracking-tight text-ink sm:text-2xl lg:text-3xl">
                       {stages[active].title} — {stages[active].subtitle}
                     </h3>
-                    <p className="mt-3 max-w-xl text-sm text-ink-muted md:text-[15px]">
+                    <p className="mt-2 max-w-xl text-xs text-ink-muted sm:text-sm lg:text-[15px]">
                       {stages[active].body}
                     </p>
-                    <div className="mt-6 inline-flex items-baseline gap-3 border-t border-hairline pt-4">
-                      <span className="mono-num text-2xl text-ink">{stages[active].metric.value}</span>
-                      <span className="text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
+                    <div className="mt-4 inline-flex items-baseline gap-3 border-t border-hairline pt-3 sm:mt-6 sm:pt-4">
+                      <span className="mono-num text-xl sm:text-2xl text-ink">{stages[active].metric.value}</span>
+                      <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
                         {stages[active].metric.label}
                       </span>
                     </div>

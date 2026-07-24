@@ -206,7 +206,7 @@ export function SignatureCanvas() {
   return (
     <div
       ref={wrapRef}
-      className="relative h-[500px] w-full overflow-hidden rounded-xl border border-hairline bg-panel md:h-[620px]"
+      className="relative h-[320px] sm:h-[440px] md:h-[580px] lg:h-[620px] w-full overflow-hidden rounded-xl border border-hairline bg-panel"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.10]"

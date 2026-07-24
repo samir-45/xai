@@ -183,7 +183,7 @@ export function ParticleField() {
   return (
     <div
       ref={wrapRef}
-      className="relative h-[420px] w-full overflow-hidden rounded-lg border border-hairline bg-surface-muted md:h-[520px]"
+      className="relative h-[280px] sm:h-[360px] md:h-[480px] lg:h-[520px] w-full overflow-hidden rounded-lg border border-hairline bg-surface-muted"
     >
       <div className="pointer-events-none absolute inset-0 dot-bg opacity-30" />
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
