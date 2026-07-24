@@ -1,4 +1,4 @@
-# Xai — Intelligence Workspace Landing Page
+# Xai - Intelligence Workspace Landing Page
 
 An interactive, high-performance web application showcasing **Xai Systems**, an enterprise intelligence workspace designed for real-time signal analysis, automated reasoning loops, and decision automation.
 

@@ -11,11 +11,11 @@ export function SignalsPanel({ rows }: { rows: InsightRow[] }) {
         {rows.map((r) => (
           <div
             key={r.id}
-            className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded border border-hairline bg-surface-muted/40 p-3"
+            className="flex flex-col justify-between gap-2 rounded border border-hairline bg-surface-muted/40 p-3 sm:flex-row sm:items-center"
           >
-            <div className="flex items-center gap-3">
+            <div className="flex min-w-0 flex-wrap items-center gap-2 sm:gap-3">
               <span className="mono-num text-xs text-ink-subtle">{r.id}</span>
-              <span className="text-sm font-medium text-ink">{r.signal}</span>
+              <span className="min-w-0 text-sm font-medium text-ink sm:truncate">{r.signal}</span>
               <span className="mono-num text-xs text-ink-muted">via {r.source}</span>
             </div>
             <div className="flex items-center gap-3">

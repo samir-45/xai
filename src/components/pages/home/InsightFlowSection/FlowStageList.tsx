@@ -12,7 +12,7 @@ export function FlowStageList({
   onSelectStage: (index: number) => void;
 }) {
   return (
-    <div className="flex flex-col justify-center py-2 sm:py-4 lg:py-16">
+    <div className="flex min-w-0 flex-col justify-center py-0 lg:py-16">
       <p className="mono-num text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-ink-subtle">
         02 / How Xai works
       </p>

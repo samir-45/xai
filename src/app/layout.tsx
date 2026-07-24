@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     icon: "/icon.svg",
   },
   openGraph: {
-    title: "Xai — Intelligence Workspace",
+    title: "Xai - Intelligence Workspace",
     description: "An intelligence workspace for teams that would rather decide than dashboard.",
     type: "website",
   },

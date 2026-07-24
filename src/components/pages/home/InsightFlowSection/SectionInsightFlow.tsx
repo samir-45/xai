@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import { stages } from "@/data/flow";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { FlowStageList } from "./FlowStageList";
@@ -54,9 +55,14 @@ export function SectionInsightFlow() {
   };
 
   return (
-    <section id="flow" ref={containerRef} className="relative hairline-b bg-surface" style={{ height: `${stages.length * 100}vh` }}>
-      <div className="sticky top-0 flex min-h-screen items-center overflow-hidden py-4 sm:py-6 lg:py-0">
-        <div className="mx-auto grid h-full w-full max-w-[1240px] grid-cols-1 gap-6 sm:gap-8 px-4 sm:px-6 lg:grid-cols-[280px_1fr] lg:gap-10">
+    <section
+      id="flow"
+      ref={containerRef}
+      className="relative hairline-b bg-surface py-16 sm:py-20 lg:h-[var(--flow-height)] lg:py-0"
+      style={{ "--flow-height": `${stages.length * 100}vh` } as CSSProperties}
+    >
+      <div className="flex items-center overflow-visible lg:sticky lg:top-0 lg:min-h-screen lg:overflow-hidden lg:py-0">
+        <div className="mx-auto grid h-full w-full max-w-[1240px] grid-cols-1 gap-6 px-4 sm:gap-8 sm:px-6 lg:grid-cols-[280px_1fr] lg:gap-10">
           <FlowStageList active={active} progress={progress} onSelectStage={scrollToStage} />
           <FlowStagePanel active={active} reduced={reduced} />
         </div>

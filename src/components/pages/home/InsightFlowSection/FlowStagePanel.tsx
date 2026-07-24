@@ -14,8 +14,8 @@ export function FlowStagePanel({
   const currentStage = stages[active];
 
   return (
-    <div className="relative flex h-full items-center">
-      <div className="relative min-h-[360px] sm:min-h-[420px] lg:aspect-[5/4] w-full overflow-hidden rounded-lg border border-hairline bg-surface-muted">
+    <div className="relative flex h-full min-w-0 items-center">
+      <div className="relative min-h-[320px] w-full overflow-hidden rounded-lg border border-hairline bg-surface-muted sm:min-h-[420px] lg:aspect-[5/4]">
         <div className="pointer-events-none absolute inset-0 grid-bg opacity-40" />
         <AnimatePresence mode="wait">
           <motion.div
@@ -24,7 +24,7 @@ export function FlowStagePanel({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduced ? { opacity: 0 } : { opacity: 0, y: -16, scale: 0.98 }}
             transition={{ duration: 0.4, ease: [0.2, 0.7, 0.2, 1] }}
-            className="absolute inset-0 flex flex-col justify-between p-4 sm:p-6 lg:p-12 overflow-y-auto custom-scrollbar"
+            className="absolute inset-0 flex flex-col justify-between overflow-y-auto p-4 custom-scrollbar sm:p-6 lg:p-12"
           >
             <StageDiagram id={currentStage.id} />
             <div className="mt-4">
@@ -37,7 +37,7 @@ export function FlowStagePanel({
               <p className="mt-2 max-w-xl text-xs text-ink-muted sm:text-sm lg:text-[15px]">
                 {currentStage.body}
               </p>
-              <div className="mt-4 inline-flex items-baseline gap-3 border-t border-hairline pt-3 sm:mt-6 sm:pt-4">
+              <div className="mt-4 inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 border-t border-hairline pt-3 sm:mt-6 sm:pt-4">
                 <span className="mono-num text-xl sm:text-2xl text-ink">{currentStage.metric.value}</span>
                 <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
                   {currentStage.metric.label}

@@ -42,13 +42,13 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.28, ease: [0.2, 0.7, 0.2, 1] }}
-            className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3"
+            className="mt-6 flex flex-col items-stretch gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center"
           >
-            <button style={{ color: "#ffffff" }} className="inline-flex h-10 items-center gap-2 rounded-md bg-ink px-4 text-sm font-medium transition-colors cursor-pointer hover:bg-ink/90">
+            <button style={{ color: "#ffffff" }} className="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-ink px-4 text-sm font-medium transition-colors cursor-pointer hover:bg-ink/90 sm:justify-start">
               Request access
               <span aria-hidden>→</span>
             </button>
-            <button className="inline-flex h-10 items-center gap-2 rounded-md border border-hairline bg-surface px-4 text-sm font-medium text-ink cursor-pointer transition-colors hover:bg-surface-muted">
+            <button className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-hairline bg-surface px-4 text-sm font-medium text-ink cursor-pointer transition-colors hover:bg-surface-muted sm:justify-start">
               Read the model paper
             </button>
           </motion.div>
@@ -79,7 +79,7 @@ const HeroSection = () => {
           className="relative"
         >
           <ParticleField />
-          <div className="mono-num mt-3 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
+          <div className="mono-num mt-3 flex flex-wrap items-center justify-between gap-2 text-[10px] uppercase tracking-[0.16em] text-ink-subtle sm:text-[11px] sm:tracking-[0.18em]">
             <span>fig.01 · signal manifold, live</span>
             <span>scroll to structure ↓</span>
           </div>

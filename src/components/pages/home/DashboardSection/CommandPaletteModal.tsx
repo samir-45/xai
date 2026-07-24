@@ -55,11 +55,11 @@ export function CommandPaletteModal({
                 <button
                   key={r.id}
                   onClick={() => onPick(r)}
-                  className="grid w-full grid-cols-[70px_1fr_auto] items-center gap-3 rounded-md px-3 py-2 text-left hover:bg-surface-muted cursor-pointer"
+                  className="grid w-full grid-cols-[64px_1fr] items-center gap-2 rounded-md px-3 py-2 text-left hover:bg-surface-muted cursor-pointer sm:grid-cols-[70px_1fr_auto] sm:gap-3"
                 >
                   <span className="mono-num text-[11px] text-ink-subtle">{r.id}</span>
                   <span className="truncate text-sm text-ink">{r.signal}</span>
-                  <span className="mono-num text-[11px] text-ink-subtle">{r.source}</span>
+                  <span className="mono-num col-start-2 text-[11px] text-ink-subtle sm:col-start-auto">{r.source}</span>
                 </button>
               ))}
             </div>

@@ -3,7 +3,7 @@ import Navbar from "@/components/shared/Navbar/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Xai — Intelligence Workspace",
+  title: "Xai - Intelligence Workspace",
   description: "An intelligence workspace for teams that would rather decide than dashboard.",
 };
 
