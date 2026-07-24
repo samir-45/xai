@@ -48,7 +48,7 @@ const HeroSection = () => {
               Request access
               <span aria-hidden>→</span>
             </button>
-            <button className="inline-flex h-10 items-center gap-2 rounded-md border border-hairline bg-surface px-4 text-sm font-medium text-ink transition-colors hover:bg-surface-muted">
+            <button className="inline-flex h-10 items-center gap-2 rounded-md border border-hairline bg-surface px-4 text-sm font-medium text-ink cursor-pointer transition-colors hover:bg-surface-muted">
               Read the model paper
             </button>
           </motion.div>
