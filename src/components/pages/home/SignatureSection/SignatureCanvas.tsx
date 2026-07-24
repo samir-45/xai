@@ -148,7 +148,7 @@ function OrbitStreams({ progressRef }: { progressRef: React.MutableRefObject<num
         <points
           key={idx}
           ref={(el) => {
-            refs.current[idx] = el;
+            refs.current[idx] = el as THREE.Points | null;
           }}
         >
           <bufferGeometry>
