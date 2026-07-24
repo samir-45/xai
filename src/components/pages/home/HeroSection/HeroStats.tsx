@@ -34,9 +34,10 @@ export default function HeroStats({ stats }: HeroStatsProps) {
     () => safeStats.map((stat: HeroStatItem) => ({ ...stat, parsed: parseStatValue(stat.value) })),
     [safeStats],
   );
-  const [counts, setCounts] = useState(() => parsedStats.map(() => 0));
+  const [counts, setCounts] = useState<number[]>(() => parsedStats.map(() => 0));
 
   useEffect(() => {
+    setCounts(parsedStats.map(() => 0));
     let animationFrame = 0;
     const duration = 1400;
     const start = performance.now();
@@ -65,14 +66,14 @@ export default function HeroStats({ stats }: HeroStatsProps) {
   return (
     <section className="bg-[#eeeeee]">
       <div className="container grid grid-cols-1 items-center gap-5 py-5 text-center md:h-[128px] md:grid-cols-3 md:gap-6 md:py-0">
-        {parsedStats.map((stat: (typeof parsedStats)[number], index: number) => (
+        {parsedStats.map((stat, index) => (
           <div key={stat.id}>
-            <p className="text-[30px] mt-4 font-extrabold leading-none tracking-[-0.02em] text-[#44484e] md:text-[34px]">
+            <p className="mt-4 text-[30px] font-extrabold leading-none tracking-[-0.02em] text-[#44484e] md:text-[34px]">
               {stat.parsed.prefix}
-              {counts[index].toLocaleString()}
+              {(counts[index] ?? 0).toLocaleString()}
               {stat.parsed.suffix}
             </p>
-            <p className=" text-[13px] font-medium uppercase leading-snug tracking-[0.01em] text-[#626870] md:text-[15px]">
+            <p className="text-[13px] font-medium uppercase leading-snug tracking-[0.01em] text-[#626870] md:text-[15px]">
               {stat.label}
             </p>
           </div>
