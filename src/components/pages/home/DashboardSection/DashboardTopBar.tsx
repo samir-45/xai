@@ -13,13 +13,13 @@ export function DashboardTopBar({
   onCommand: () => void;
 }) {
   return (
-    <div className="hairline-b flex flex-wrap items-center justify-between gap-2 sm:gap-4 px-3 sm:px-6 py-3">
+    <div className="hairline-b grid grid-cols-1 gap-2 px-3 py-3 sm:flex sm:flex-wrap sm:items-center sm:justify-between sm:gap-4 sm:px-6">
       <div className="hidden sm:flex items-center gap-3 text-sm text-ink-muted">
         <span>Workspace</span>
         <span className="text-ink-subtle">/</span>
         <span className="text-ink">Home</span>
       </div>
-      <div className="relative flex items-center gap-1 overflow-x-auto overflow-y-hidden custom-scrollbar py-1">
+      <div className="relative flex w-full min-w-0 items-center gap-1 overflow-x-auto overflow-y-hidden custom-scrollbar py-1 sm:w-auto">
         {tabs.map((t) => (
           <button
             key={t.id}

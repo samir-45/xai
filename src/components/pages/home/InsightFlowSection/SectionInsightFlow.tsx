@@ -18,6 +18,7 @@ export function SectionInsightFlow() {
     const onScroll = () => {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
+        if (!window.matchMedia("(min-width: 1024px)").matches) return;
         const el = containerRef.current;
         if (!el) return;
         const rect = el.getBoundingClientRect();
@@ -45,6 +46,11 @@ export function SectionInsightFlow() {
   }, []);
 
   const scrollToStage = (index: number) => {
+    setActive(index);
+    setProgress(stages.length <= 1 ? 1 : index / (stages.length - 1));
+
+    if (!window.matchMedia("(min-width: 1024px)").matches) return;
+
     const el = containerRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();

@@ -15,7 +15,7 @@ export function FlowStagePanel({
 
   return (
     <div className="relative flex h-full min-w-0 items-center">
-      <div className="relative min-h-[320px] w-full overflow-hidden rounded-lg border border-hairline bg-surface-muted sm:min-h-[420px] lg:aspect-[5/4]">
+      <div className="relative w-full overflow-hidden rounded-lg border border-hairline bg-surface-muted lg:aspect-[5/4] lg:min-h-[420px]">
         <div className="pointer-events-none absolute inset-0 grid-bg opacity-40" />
         <AnimatePresence mode="wait">
           <motion.div
@@ -24,7 +24,7 @@ export function FlowStagePanel({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduced ? { opacity: 0 } : { opacity: 0, y: -16, scale: 0.98 }}
             transition={{ duration: 0.4, ease: [0.2, 0.7, 0.2, 1] }}
-            className="absolute inset-0 flex flex-col justify-between overflow-y-auto p-4 custom-scrollbar sm:p-6 lg:p-12"
+            className="relative flex flex-col justify-between p-4 sm:p-6 lg:absolute lg:inset-0 lg:overflow-y-auto lg:p-12"
           >
             <StageDiagram id={currentStage.id} />
             <div className="mt-4">

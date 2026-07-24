@@ -33,10 +33,10 @@ export function OverviewPanel({
 }) {
   const data = trendByRange[range];
   return (
-    <div className="grid gap-4">
+    <div className="grid min-w-0 gap-4">
       <KpiCardsGrid />
-      <div className="grid gap-3 lg:grid-cols-[1.6fr_1fr]">
-        <div className="rounded-lg border border-hairline bg-surface p-4 sm:p-5">
+      <div className="grid min-w-0 gap-3 lg:grid-cols-[1.6fr_1fr]">
+        <div className="min-w-0 rounded-lg border border-hairline bg-surface p-4 sm:p-5">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
             <div>
               <div className="text-sm font-medium text-ink">Signal volume · {range}</div>

@@ -24,19 +24,19 @@ export function DashboardSidebar({
   ];
 
   return (
-    <aside className="hairline-b border-b border-hairline lg:border-b-0 lg:border-r bg-surface-muted/60 p-3 sm:p-4">
-      <div className="flex items-center justify-between px-2 py-1">
-        <div className="flex items-center gap-2">
+    <aside className="hairline-b min-w-0 border-b border-hairline bg-surface-muted/60 p-3 lg:border-b-0 lg:border-r sm:p-4">
+      <div className="flex min-w-0 items-center justify-between gap-3 px-2 py-1">
+        <div className="flex min-w-0 items-center gap-2">
           <div className="h-6 w-6 rounded-md border border-hairline-strong bg-surface flex items-center justify-center text-[10px] font-semibold text-ink">
             X
           </div>
-          <span className="text-sm font-medium text-ink">Xai · Acme</span>
+          <span className="truncate text-sm font-medium text-ink">Xai · Acme</span>
         </div>
-        <span className="mono-num text-[10px] text-ink-subtle">prod</span>
+        <span className="mono-num shrink-0 text-[10px] text-ink-subtle">prod</span>
       </div>
       <div className="mt-3 lg:mt-4">
         <p className="px-2 mono-num text-[10px] uppercase tracking-[0.2em] text-ink-subtle hidden lg:block">Workspace</p>
-        <nav className="mt-1 flex flex-row overflow-x-auto gap-1 pb-1 custom-scrollbar lg:flex-col lg:space-y-0.5 lg:overflow-visible lg:pb-0">
+        <nav className="mt-1 flex max-w-full flex-row gap-1 overflow-x-auto pb-1 custom-scrollbar lg:flex-col lg:space-y-0.5 lg:overflow-visible lg:pb-0">
           {nav.map((n) => {
             const isActive = active === n.key;
             return (

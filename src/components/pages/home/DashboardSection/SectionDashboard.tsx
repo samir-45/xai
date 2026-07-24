@@ -124,7 +124,7 @@ export function SectionDashboard() {
 
   return (
     <section id="dashboard" className="hairline-b bg-surface-muted/40">
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 py-12 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-[1240px] px-3 py-12 sm:px-6 sm:py-20 lg:py-24">
         <div className="mb-6 sm:mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="mono-num text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-ink-subtle">
@@ -141,8 +141,8 @@ export function SectionDashboard() {
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-xl border border-hairline bg-surface shadow-[0_1px_0_0_rgba(0,0,0,0.02),0_30px_60px_-30px_rgba(20,30,60,0.15)]">
-          <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr]">
+        <div className="min-w-0 overflow-hidden rounded-xl border border-hairline bg-surface shadow-[0_1px_0_0_rgba(0,0,0,0.02),0_30px_60px_-30px_rgba(20,30,60,0.15)]">
+          <div className="grid min-w-0 grid-cols-1 lg:grid-cols-[220px_1fr]">
             <DashboardSidebar active={sidebar} onSelect={handleSidebar} onView={applyView} />
             <div className="min-w-0">
               <DashboardTopBar tab={tab} onChange={setTab} onCommand={() => setPaletteOpen(true)} />
