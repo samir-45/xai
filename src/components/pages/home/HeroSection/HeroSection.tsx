@@ -1,0 +1,92 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ParticleField } from "./ParticleField";
+
+const HeroSection = () => {
+  return (
+    <section className="relative hairline-b bg-surface">
+      <div className="pointer-events-none absolute inset-0 grid-bg opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+      <div className="relative mx-auto grid max-w-[1240px] gap-12 px-6 py-20 md:grid-cols-[1.05fr_1fr] md:py-28">
+        <div className="flex flex-col justify-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.05, ease: [0.2, 0.7, 0.2, 1] }}
+            className="mt-5 text-5xl font-medium leading-[1.02] tracking-[-0.02em] text-ink md:text-[64px]"
+          >
+            Turn signal into
+            <br />
+            <span className="relative">
+              structured decisions.
+              <svg
+                className="absolute -bottom-2 left-0 h-2 w-full text-signal"
+                viewBox="0 0 400 8"
+                preserveAspectRatio="none"
+                aria-hidden
+              >
+                <path d="M0 4 Q100 0 200 4 T400 4" stroke="currentColor" strokeWidth="1.25" fill="none" opacity="0.7" />
+              </svg>
+            </span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.18, ease: [0.2, 0.7, 0.2, 1] }}
+            className="mt-6 max-w-xl text-[17px] leading-[1.55] text-ink-muted"
+          >
+            Xai reads across your systems, reasons over the whole graph, and hands
+            your team the next decision — with the evidence attached.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.28, ease: [0.2, 0.7, 0.2, 1] }}
+            className="mt-8 flex flex-wrap items-center gap-3"
+          >
+            <button style={{ color: "#ffffff" }} className="inline-flex h-10 items-center gap-2 rounded-md bg-ink px-4 text-sm font-medium transition-colors cursor-pointer hover:bg-ink/90">
+              Request access
+              <span aria-hidden>→</span>
+            </button>
+            <button className="inline-flex h-10 items-center gap-2 rounded-md border border-hairline bg-surface px-4 text-sm font-medium text-ink transition-colors hover:bg-surface-muted">
+              Read the model paper
+            </button>
+          </motion.div>
+
+          <motion.dl
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-14 grid max-w-lg grid-cols-3 gap-6 pt-6"
+          >
+            {[
+              ["48.2M", "signals / day"],
+              ["94.1%", "insight confidence"],
+              ["8.4k", "actions / week"],
+            ].map(([v, l]) => (
+              <div key={l}>
+                <div className="mono-num text-2xl text-ink">{v}</div>
+                <div className="mt-1 text-[11px] uppercase tracking-[0.18em] text-ink-subtle">{l}</div>
+              </div>
+            ))}
+          </motion.dl>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.1, ease: [0.2, 0.7, 0.2, 1] }}
+          className="relative"
+        >
+          <ParticleField />
+          <div className="mono-num mt-3 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
+            <span>fig.01 · signal manifold, live</span>
+            <span>scroll to structure ↓</span>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
