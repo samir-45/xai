@@ -37,35 +37,35 @@ export function SectionSignature() {
 
         <SignatureCanvas />
 
-        <div className="mt-8 sm:mt-14 grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 sm:mt-16 border-t border-hairline pt-10 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
           {[
             {
-              num: "01",
-              title: "Substrate Layer",
-              desc: "Continuous ingestion from live webhooks, event buses, and vector embeddings synthesized into a unified memory graph.",
+              tag: "SUBSTRATE",
+              desc: "One typed graph across every source in your stack.",
             },
             {
-              num: "02",
-              title: "Reasoning Core",
-              desc: "Multi-agent consensus loops evaluate change-points and rank anomalies with mathematically sound confidence metrics.",
+              tag: "REASONING",
+              desc: "Statistical, causal, and language models over the same substrate.",
             },
             {
-              num: "03",
-              title: "Action Pipeline",
-              desc: "Automated triggers execute deterministic workflows, notifying teams or triggering webhooks the millisecond thresholds cross.",
+              tag: "ACTION",
+              desc: "Every insight arrives with confidence, evidence, and an automation.",
             },
-          ].map((card, i) => (
+          ].map((item, i) => (
             <motion.div
-              key={card.num}
+              key={item.tag}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-xl border border-hairline bg-surface-muted p-5 sm:p-6"
+              className="flex flex-col justify-start"
             >
-              <span className="mono-num text-xs text-signal font-semibold">{card.num}</span>
-              <h3 className="mt-2 text-base sm:text-lg font-medium text-ink">{card.title}</h3>
-              <p className="mt-2 text-xs sm:text-sm text-ink-muted leading-relaxed">{card.desc}</p>
+              <span className="mono-num text-[11px] font-semibold uppercase tracking-[0.18em] text-[#3b82f6]">
+                {item.tag}
+              </span>
+              <p className="mt-2 text-sm text-ink-muted leading-relaxed">
+                {item.desc}
+              </p>
             </motion.div>
           ))}
         </div>
